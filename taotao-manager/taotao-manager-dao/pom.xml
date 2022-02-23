@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.taotao</groupId>
+		<artifactId>taotao-manager</artifactId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>taotao-manager-dao</artifactId>
+	
+	<dependencies>
+		<!-- dao 需要依赖 pojo -->
+		<dependency>
+			<groupId>com.taotao</groupId>
+			<artifactId>taotao-manager-pojo</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<!-- Mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.miemiedev</groupId>
+			<artifactId>mybatis-paginator</artifactId>
+		</dependency>
+		<!-- 分页插件 -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+		</dependency>
+		<!-- MySql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!-- 连接池 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+		</dependency>
+	</dependencies>
+	
+	<!-- 1. 解决mapper映射文件不发布问题
+		 2. 报错：Invalid bound statement (not found)时是因为：需要把src/main/java路径下的所有 .xml文件复制到目标目录
+		 3. 如果不添加此节点，mabatis的~Mapper.xml文件会被漏掉(文件路径taotao-manager\taotao-manager-dao\target\classes\com\taotao\mapper)
+	 -->
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+			<!-- <resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource> -->
+		</resources>
+	</build>
+</project>
