@@ -77,11 +77,11 @@ public class ItemController {
 	@RequestMapping("/rest/item/delete") 
 	@ResponseBody	//响应json数据
 	public TaotaoResult deleteItem(String ids) {
-		System.out.println(" 即将删除该商品，id为：" + ids);
+		System.out.println("Will delete those items by ids in " + ids);
 		String[] idList = ids.split(",");
 		List<Long> itemIds = new ArrayList<Long>();
-		for (int i = 0; i < idList.length; i++) {
-			itemIds.add(Long.parseLong(idList[i]));
+		for (String id : idList) {
+			itemIds.add(Long.parseLong(id));
 		}
 		return itemService.deleteItem(itemIds);
 	}
@@ -101,7 +101,7 @@ public class ItemController {
 	@RequestMapping("/itemParam/{itemId}")
 	@ResponseBody
 	public TbItemParamItem getItemParamByItemId(@PathVariable Long itemId) {
-		System.out.println("根据商品id查询 商品规格 " + itemId);
+		System.out.println("Query product specifications by item id=" + itemId);
 		return itemService.getItemParamByItemId(itemId);
 	}
 }

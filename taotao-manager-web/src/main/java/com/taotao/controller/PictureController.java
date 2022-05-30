@@ -54,13 +54,13 @@ public class PictureController {
 			//先从springmvc.xml加载文件resource.properties
 			url = IMAGE_SERVER_URL + url;
 			// 响应上传图片的url(根据官方文档http://kindeditor.net/docs/upload.html)
-			Map<Object, Object> result = new HashMap<Object, Object>();
+			Map<Object, Object> result = new HashMap<>();
 			result.put("error",	0);//error:成功为0，失败为1
 			result.put("url", url);
 			return JsonUtils.objectToJson(result);
 		} catch (Exception e) {
 			e.printStackTrace();
-			Map<Object, Object> result = new HashMap<Object, Object>();
+			Map<Object, Object> result = new HashMap<>();
 			result.put("error",	1);//error:成功为0，失败为1
 			result.put("message", "图片上传失败");
 			return JsonUtils.objectToJson(result);

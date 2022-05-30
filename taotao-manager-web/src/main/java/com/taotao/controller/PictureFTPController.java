@@ -46,7 +46,7 @@ public class PictureFTPController {
 	@RequestMapping("/pic/upload")
 	@ResponseBody
 	public String picUpload(MultipartFile uploadFile) {
-		Map<Object, Object> result = new HashMap<Object, Object>();
+		Map<Object, Object> result = new HashMap<>();
 		try {
 			// 接收上传的文件
 			// 获取文件的原来的文件名

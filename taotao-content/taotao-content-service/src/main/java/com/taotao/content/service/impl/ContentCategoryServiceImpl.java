@@ -35,7 +35,7 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 		Criteria criteria = example.createCriteria();
 		criteria.andParentIdEqualTo(parentId);//设置parentId
 		List<TbContentCategory> list = contentCategoryMapper.selectByExample(example);
-		List<EasyUITreeNode> resultList = new ArrayList<EasyUITreeNode>();
+		List<EasyUITreeNode> resultList = new ArrayList<>();
 		for (TbContentCategory tbContentCategory : list) {
 			EasyUITreeNode node = new EasyUITreeNode();
 			node.setId(tbContentCategory.getId());
@@ -151,8 +151,7 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 		TbContentCategoryExample example = new TbContentCategoryExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andParentIdEqualTo(parentId);//currentCategory的id就是它的子节点的父节点
-		List<TbContentCategory> childrenCategories = contentCategoryMapper.selectByExample(example);
-		return childrenCategories;
+		return contentCategoryMapper.selectByExample(example);
 	}
 	/**
 	 * 判断是否拥有孩子
@@ -160,11 +159,7 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 	@Override
 	public boolean hasChildCategory(long id) {
 		List<TbContentCategory> childrenCategories = getChildByCurrentCategory(id);
-		if (childrenCategories.size() == 0) {
-			return false;
-		}
-		return true;
-		
+		return childrenCategories.size() != 0;
 	}
 
 }

@@ -35,8 +35,7 @@ public class ContentCategoryController {
 	@ResponseBody
 	public List<EasyUITreeNode> getContentCategoryList(
 			@RequestParam(value = "id",defaultValue = "0")Long parentId){
-		List<EasyUITreeNode> list = contentCategoryService.getContentCategoryList(parentId);
-		return list;
+		return contentCategoryService.getContentCategoryList(parentId);
 		
 	}
 	/**
@@ -49,22 +48,19 @@ public class ContentCategoryController {
 	@RequestMapping("/content/category/create")
 	@ResponseBody
 	public TaotaoResult addContentCategory(Long parentId, String name) {
-		TaotaoResult result = contentCategoryService.addContentCategory(parentId, name);
-		return result;
+		return contentCategoryService.addContentCategory(parentId, name);
 	}
 	
 	@RequestMapping("/content/category/update")
 	@ResponseBody
 	public TaotaoResult updateContentCategory(Long id, String name) {
-		TaotaoResult result = contentCategoryService.updateContentCategory(id, name);
-		return result;
+		return contentCategoryService.updateContentCategory(id, name);
 	}
 	
 	@RequestMapping("/content/category/delete/")
 	@ResponseBody
 	public TaotaoResult deleteContentCategory(Long id) {
-		TaotaoResult result = contentCategoryService.deleteContentCategory(id);
-		return result;
+		return contentCategoryService.deleteContentCategory(id);
 	}
 	
 	@RequestMapping("/content/category/hasChild")
