@@ -10,14 +10,7 @@
 > MySQL: mysql-5.7.24 \
 > redis: 3.0.0
 ---
-> 端口 \
-> manager-8080 \
-> common-8083 \
-> search-8084 \
-> manager-web-8081 \
-> portal-web-8082 \
-> search-web-8085
----
+
 #### 1. 启动mysql
 [MySQL 之 Linux 安装MySQL-5.7.24](https://blog.csdn.net/vihem/article/details/123171414)
 ```
@@ -60,3 +53,12 @@ ps -ef | grep redis
 
 2. 启动 manager、common、search、manager-web、portal-web、search-web
    tomcat7:run
+
+> 端口 \
+> manager-8080 \
+> common-8083 \
+> search-8084 \
+> manager-web-8081 \
+> portal-web-8082 \
+> search-web-8085
+---
