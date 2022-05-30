@@ -72,9 +72,9 @@ public class IndexController {
 	@RequestMapping(value = "/swiper",method = RequestMethod.GET)
 	public List<TbContent> swiper() {
 		System.out.println("=====swiper");
-		List<TbContent>  asssContents = contentService.getSwiper();
-		System.out.println("=====swiper"+asssContents.toString());
-		return asssContents;
+		List<TbContent> contents = contentService.getSwiper();
+		System.out.println("=====swiper"+ contents.toString());
+		return contents;
 	}
 	
 	

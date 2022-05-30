@@ -3,6 +3,8 @@ package com.taotao.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import com.taotao.mapper.TbItemParamItemMapper;
+import com.taotao.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +15,6 @@ import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.common.utils.IDUtils;
 import com.taotao.mapper.TbItemDescMapper;
 import com.taotao.mapper.TbItemMapper;
-import com.taotao.pojo.TbItem;
-import com.taotao.pojo.TbItemDesc;
-import com.taotao.pojo.TbItemExample;
 import com.taotao.pojo.TbItemExample.Criteria;
 import com.taotao.service.ItemService;
 
@@ -30,11 +29,12 @@ public class ItemServiceImpl implements ItemService{
 	public TbItemMapper itemMapper;
 	@Autowired
 	public TbItemDescMapper itemDescMapper;
+	@Autowired
+	public TbItemParamItemMapper itemParamItemMapper;
 	
 	@Override
 	public TbItem getItemById(long itemId) {
-		TbItem item = itemMapper.selectByPrimaryKey(itemId);
-		return item;
+		return itemMapper.selectByPrimaryKey(itemId);
 	}
 	
 	@Override
@@ -86,5 +86,32 @@ public class ItemServiceImpl implements ItemService{
 		itemMapper.deleteByExample(example);
 		// 返回结果
 		return TaotaoResult.ok();
+	}
+
+	/**
+	 * 根据商品id查询商品描述
+	 */
+	@Override
+	public TbItemDesc getItemDescById(long itemId){
+		TbItemDescExample example = new TbItemDescExample();
+		TbItemDescExample.Criteria criteria = example.createCriteria();
+		criteria.andItemIdEqualTo(itemId);
+		List<TbItemDesc> list = itemDescMapper.selectByExample(example);
+		if (list.size() <= 0){
+			return null;
+		}
+		return list.get(0);
+	}
+
+	@Override
+	public TbItemParamItem getItemParamByItemId(long itemId) {
+		TbItemParamItemExample example = new TbItemParamItemExample();
+		TbItemParamItemExample.Criteria criteria = example.createCriteria();
+		criteria.andItemIdEqualTo(itemId);
+		List<TbItemParamItem> list = itemParamItemMapper.selectByExample(example);
+		if (list.size() <= 0) {
+			return null;
+		}
+		return list.get(0);
 	}
 }

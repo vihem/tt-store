@@ -64,6 +64,7 @@ public class ContentServiceImpl implements ContentService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println("添加内容成功 " + content);
 		return TaotaoResult.ok();//记得发布服务
 	}
 
@@ -78,6 +79,7 @@ public class ContentServiceImpl implements ContentService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println("修改内容成功 " + content);
 		return TaotaoResult.ok();
 	}
 
@@ -105,8 +107,7 @@ public class ContentServiceImpl implements ContentService {
 			String json = jedisClient.hget(INDEX_CONTENT, String.valueOf(cid));
 			// 如果查询到结果，把json转为List
 			if (StringUtils.isNotBlank(json)) {
-				List<TbContent> list = JsonUtils.jsonToList(json, TbContent.class);
-				return list;
+				return JsonUtils.jsonToList(json, TbContent.class);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

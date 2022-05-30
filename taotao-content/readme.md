@@ -1,77 +1,77 @@
-content ÄÚÈİ¹ÜÀíÏµÍ³
+content å†…å®¹ç®¡ç†ç³»ç»Ÿ
 
-	Ö÷Ò³µÄ¸÷ÖÖ¹ã¸æÎ»£¬ÂÖ²¥Í¼ÄÚÈİ
+	ä¸»é¡µçš„å„ç§å¹¿å‘Šä½ï¼Œè½®æ’­å›¾å†…å®¹
 
-¶ÔÓÚdaoºÍpojo£¬Ö»ĞèÒªÒÀÀµmanagerµÄdaoºÍpojo
+å¯¹äºdaoå’Œpojoï¼Œåªéœ€è¦ä¾èµ–managerçš„daoå’Œpojo
 
-taotao-content-interface ½Ó¿Ú²ã£¨ÒÀÀµmanager-pojo£©
+taotao-content-interface æ¥å£å±‚ï¼ˆä¾èµ–manager-pojoï¼‰
 
-taotao-content-service ·şÎñ²ã£¨ÒÀÀµmanager-dao£©´ò°ü·½Ê½war
+taotao-content-service æœåŠ¡å±‚ï¼ˆä¾èµ–manager-daoï¼‰æ‰“åŒ…æ–¹å¼war
 	
-	×¢²áÖĞĞÄµÄµØÖ·£¬dubboµÄ¶Ë¿ÚºÅĞèÒªĞŞ¸Ä£¨20881£©£¬ÒòÎªmanager»áÕ¼ÓÃÒ»¸ö20880
+	æ³¨å†Œä¸­å¿ƒçš„åœ°å€ï¼Œdubboçš„ç«¯å£å·éœ€è¦ä¿®æ”¹ï¼ˆ20881ï¼‰ï¼Œå› ä¸ºmanagerä¼šå ç”¨ä¸€ä¸ª20880
 	
-¹ØÓÚweb.xml£¬·şÎñ²ãÖ»ĞèÒª³õÊ¼»¯springÈİÆ÷
+å…³äºweb.xmlï¼ŒæœåŠ¡å±‚åªéœ€è¦åˆå§‹åŒ–springå®¹å™¨
 
-ÀíÂÛÉÏ£¬jar°üÊÇ²»ÄÜ°üº¬jar°ü£¬ËùÒÔ´ò°ü³Éwar°ü£¬Ö±½Ó²¿Êğµ½tomcat£¬·½±ã²¿Êğ¡£
+ç†è®ºä¸Šï¼ŒjaråŒ…æ˜¯ä¸èƒ½åŒ…å«jaråŒ…ï¼Œæ‰€ä»¥æ‰“åŒ…æˆwaråŒ…ï¼Œç›´æ¥éƒ¨ç½²åˆ°tomcatï¼Œæ–¹ä¾¿éƒ¨ç½²ã€‚
 
-ÄÚÈİ·ÖÀà¹ÜÀí£º
+å†…å®¹åˆ†ç±»ç®¡ç†ï¼š
 
-ÔÚmanager-daoÖĞµÄ TbContentCategoryMapper µÄ id="insert"ºÍid="insertSelective" ÖĞÌí¼ÓÏÂÃæ´úÂë£º
+åœ¨manager-daoä¸­çš„ TbContentCategoryMapper çš„ id="insert"å’Œid="insertSelective" ä¸­æ·»åŠ ä¸‹é¢ä»£ç ï¼š
 
-	<!-- SELECT LAST_INSERT_ID()£º¿ÉÒÔ²éµ½×îºó²åÈëµÄid£¬ 
-		keyProperty="id"£ºÀ´×Ôcom.taotao.pojo.TbContentCategoryµÄidÊôĞÔ£¬°Ñ²éÑ¯½á¹û¸³¸ø¸ÃidÊôĞÔ£¬Ò²¾ÍÊÇtb_content_category±íµÄÖ÷¼ü
-		resultType="long"£ºSELECT LAST_INSERT_ID()Ö´ĞĞÍê³É·µ»ØÀàĞÍÎª£¨TbContentCategoryÖĞ£©Long id;
-		order="AFTER"£ºÔÚ²åÈëÓï¾äÖ´ĞĞÖ®ºó½øĞĞ¸Ã²éÑ¯
+	<!-- SELECT LAST_INSERT_ID()ï¼šå¯ä»¥æŸ¥åˆ°æœ€åæ’å…¥çš„idï¼Œ 
+		keyProperty="id"ï¼šæ¥è‡ªcom.taotao.pojo.TbContentCategoryçš„idå±æ€§ï¼ŒæŠŠæŸ¥è¯¢ç»“æœèµ‹ç»™è¯¥idå±æ€§ï¼Œä¹Ÿå°±æ˜¯tb_content_categoryè¡¨çš„ä¸»é”®
+		resultType="long"ï¼šSELECT LAST_INSERT_ID()æ‰§è¡Œå®Œæˆè¿”å›ç±»å‹ä¸ºï¼ˆTbContentCategoryä¸­ï¼‰Long id;
+		order="AFTER"ï¼šåœ¨æ’å…¥è¯­å¥æ‰§è¡Œä¹‹åè¿›è¡Œè¯¥æŸ¥è¯¢
 	-->
 	<selectKey keyProperty="id" resultType="long" order="AFTER">
 		SELECT LAST_INSERT_ID()
 	</selectKey>
 
-Ìí¼ÓÄÚÈİ·ÖÀàÖ®ºó¿ÉÒÔ¿´F12¿ª·¢ÕßÄ£Ê½-Network-Header-Form Data.
+æ·»åŠ å†…å®¹åˆ†ç±»ä¹‹åå¯ä»¥çœ‹F12å¼€å‘è€…æ¨¡å¼-Network-Header-Form Data.
 --------
-Ö÷Ò³Ê¹ÓÃredis»º´æ
+ä¸»é¡µä½¿ç”¨redisç¼“å­˜
 
-	1. ±àÒë£ºredis-3.0.0.tar.gz ÊÇÒ»¸öcÓïÑÔ¿ª·¢µÄÔ´´úÂë£¬ĞèÒª½øĞĞ±àÒë¡£½øÈëÔ´ÂëÄ¿Â¼£¬ÓĞMakefileÎÄ¼ş£¬ËùÒÔÔÚµ±Ç°Ä¿Â¼ÏÂÖ´ĞĞmakeÃüÁî½øĞĞ±àÒë
-	2. °²×°£ºmake install PREFIX=/usr/local/reids  -- PREFIX=°²×°Ä¿Â¼
-	3. Ç°¶ËÆô¶¯Ä£Ê½£º½øÈë/usr/local/reids/binÄ¿Â¼   ./redis-server
-	4. ºó¶ËÆô¶¯Ä£Ê½£º¸´ÖÆÅäÖÃÎÄ¼ş£ºcp ~/redis-3.0.0/redis.conf /usr/local/reids/bin ²¢ĞŞ¸Ä£ºdaemonize yes¡£µ±Ç°Ä¿Â¼ÏÂÆô¶¯£º./redis-server redis.conf
-	5. ²é¿´ÊÇ·ñÒÑ¾­¿ªÆô£ºps aux|grep redis
-	6. Á¬½Óredis·şÎñ£º/usr/local/reids/bin #./redis-cli #ping 
-		# ./redis-cli -h 192.168.25.133 -p 6379
+	1. ç¼–è¯‘ï¼šredis-3.0.0.tar.gz æ˜¯ä¸€ä¸ªcè¯­è¨€å¼€å‘çš„æºä»£ç ï¼Œéœ€è¦è¿›è¡Œç¼–è¯‘ã€‚è¿›å…¥æºç ç›®å½•ï¼Œæœ‰Makefileæ–‡ä»¶ï¼Œæ‰€ä»¥åœ¨å½“å‰ç›®å½•ä¸‹æ‰§è¡Œmakeå‘½ä»¤è¿›è¡Œç¼–è¯‘
+	2. å®‰è£…ï¼šmake install PREFIX=/usr/local/reids  -- PREFIX=å®‰è£…ç›®å½•
+	3. å‰ç«¯å¯åŠ¨æ¨¡å¼ï¼šè¿›å…¥/usr/local/reids/binç›®å½•   ./redis-server
+	4. åç«¯å¯åŠ¨æ¨¡å¼ï¼šå¤åˆ¶é…ç½®æ–‡ä»¶ï¼šcp ~/redis-3.0.0/redis.conf /usr/local/reids/bin å¹¶ä¿®æ”¹ï¼šdaemonize yesã€‚å½“å‰ç›®å½•ä¸‹å¯åŠ¨ï¼š./redis-server redis.conf
+	5. æŸ¥çœ‹æ˜¯å¦å·²ç»å¼€å¯ï¼šps aux|grep redis
+	6. è¿æ¥redisæœåŠ¡ï¼š/usr/local/reids/bin #./redis-cli #ping 
+		# ./redis-cli -h 192.168.1.136 -p 6379
 	
-	redis ´æ·ÅµÄ¶¼ÊÇ×Ö·û´®£¬³£ÊÇ¼üÖµ¶Ô
+	redis å­˜æ”¾çš„éƒ½æ˜¯å­—ç¬¦ä¸²ï¼Œå¸¸æ˜¯é”®å€¼å¯¹
 	
-redis³Ö¾Ã»¯
+redisæŒä¹…åŒ–
 
-Á½ÖÖ·½°¸£º¿ÉÍ¬Ê±¿ªÆô
+ä¸¤ç§æ–¹æ¡ˆï¼šå¯åŒæ—¶å¼€å¯
 	
-	RDB(¿ìÕÕ)ĞÎÊ½£¨Ä¬ÈÏ£©£º¶¨ÆÚ¸üĞÂ£¬´æ·ÅÔÚÄÚ´æÖĞ£¬±£´æÎª¿ìÕÕ¡£dump.rdbÎÄ¼ş£¨¿ìÕÕÎÄ¼ş£©¡£
-	AOFĞÎÊ½£¨±£´æµÄÊÇ¶ÔÊı¾İ¿âµÄÃüÁî£©£¬¿ªÆôºóĞÔÄÜÓĞÒ»¶¨ÏÂ½µ£¬ÒòÎªËû»áÆµ·±²Ù×÷´ÅÅÌ£¬Êı¾İÍêÕûĞÔ½Ï¸ß¡£
+	RDB(å¿«ç…§)å½¢å¼ï¼ˆé»˜è®¤ï¼‰ï¼šå®šæœŸæ›´æ–°ï¼Œå­˜æ”¾åœ¨å†…å­˜ä¸­ï¼Œä¿å­˜ä¸ºå¿«ç…§ã€‚dump.rdbæ–‡ä»¶ï¼ˆå¿«ç…§æ–‡ä»¶ï¼‰ã€‚
+	AOFå½¢å¼ï¼ˆä¿å­˜çš„æ˜¯å¯¹æ•°æ®åº“çš„å‘½ä»¤ï¼‰ï¼Œå¼€å¯åæ€§èƒ½æœ‰ä¸€å®šä¸‹é™ï¼Œå› ä¸ºä»–ä¼šé¢‘ç¹æ“ä½œç£ç›˜ï¼Œæ•°æ®å®Œæ•´æ€§è¾ƒé«˜ã€‚
 
-redis¼¯Èº
+redisé›†ç¾¤
 
-1. ´´½¨6¸öredis»·¾³½Úµã£º
+1. åˆ›å»º6ä¸ªredisç¯å¢ƒèŠ‚ç‚¹ï¼š
 
 	port 7001~7006
-	cluster-enabled yes¿ªÆô¼¯Èº£¬´ú±íµ±Ç°ÊÇÒ»¸ö¼¯ÈºÄ£Ê½
+	cluster-enabled yeså¼€å¯é›†ç¾¤ï¼Œä»£è¡¨å½“å‰æ˜¯ä¸€ä¸ªé›†ç¾¤æ¨¡å¼
 	#cd /usr/local/redis-cluster/
-	Ìí¼Ó¿ÉÖ´ĞĞÈ¨ÏŞ£º chmod +x start-all.sh
-	Æô¶¯#./start-all.sh
-	²é¿´ÊÇ·ñÆô¶¯£ºps aux|grep redis
+	æ·»åŠ å¯æ‰§è¡Œæƒé™ï¼š chmod +x start-all.sh
+	å¯åŠ¨#./start-all.sh
+	æŸ¥çœ‹æ˜¯å¦å¯åŠ¨ï¼šps aux|grep redis
 
-2. °²×°ruby
+2. å®‰è£…ruby
 	
 	yum install ruby
-	gem install redis-3.0.0.gem °²×°rubyÔËĞĞÒÀÀµ°ü
+	gem install redis-3.0.0.gem å®‰è£…rubyè¿è¡Œä¾èµ–åŒ…
 	cp /root/redis-3.0.0/src/redis-trib.rb /usr/local/redis-cluster
 	
-3. ´î½¨¼¯Èº£º
+3. æ­å»ºé›†ç¾¤ï¼š
 
 	# cd /usr/local/redis-cluster
-	# ./redis-trib.rb create --replicas 1 192.168.25.135:7001 192.168.25.135:7002 192.168.25.135:7003 192.168.25.135:7004 192.168.25.135:7005 192.168.25.135:7006
-	--replicas 1 £º1ÆäÊµ´ú±íµÄÊÇÒ»¸ö±ÈÀı£¬¾ÍÊÇÖ÷½ÚµãÊı/´Ó½ÚµãÊıµÄ±ÈÀı¡£ÄÇÃ´ÏëÒ»Ïë£¬ÔÚ´´½¨¼¯ÈºµÄÊ±ºò£¬ÄÄĞ©½ÚµãÊÇÖ÷½ÚµãÄØ£¿ÄÄĞ©½ÚµãÊÇ´Ó½ÚµãÄØ£¿´ğ°¸ÊÇ½«°´ÕÕÃüÁîÖĞIP:PORTµÄË³Ğò£¬ÏÈÊÇ3¸öÖ÷½Úµã£¬È»ºóÊÇ3¸ö´Ó½Úµã¡£
-	Á¬½Ó¼¯Èº£ºredis01/redis-cli -p 7006 -c 
-	192.168.25.135:7006> cluster info
+	# ./redis-trib.rb create --replicas 1 192.168.1.136:7001 192.168.1.136:7002 192.168.1.136:7003 192.168.1.136:7004 192.168.1.136:7005 192.168.1.136:7006
+	--replicas 1 ï¼š1å…¶å®ä»£è¡¨çš„æ˜¯ä¸€ä¸ªæ¯”ä¾‹ï¼Œå°±æ˜¯ä¸»èŠ‚ç‚¹æ•°/ä»èŠ‚ç‚¹æ•°çš„æ¯”ä¾‹ã€‚é‚£ä¹ˆæƒ³ä¸€æƒ³ï¼Œåœ¨åˆ›å»ºé›†ç¾¤çš„æ—¶å€™ï¼Œå“ªäº›èŠ‚ç‚¹æ˜¯ä¸»èŠ‚ç‚¹å‘¢ï¼Ÿå“ªäº›èŠ‚ç‚¹æ˜¯ä»èŠ‚ç‚¹å‘¢ï¼Ÿç­”æ¡ˆæ˜¯å°†æŒ‰ç…§å‘½ä»¤ä¸­IP:PORTçš„é¡ºåºï¼Œå…ˆæ˜¯3ä¸ªä¸»èŠ‚ç‚¹ï¼Œç„¶åæ˜¯3ä¸ªä»èŠ‚ç‚¹ã€‚
+	è¿æ¥é›†ç¾¤ï¼šredis01/redis-cli -p 7006 -c 
+	192.168.1.136:7006> cluster info
 	
 	
 	

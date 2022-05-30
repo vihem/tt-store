@@ -1,7 +1,7 @@
-portal ÃÅ»§ÍøÕ¾
+portal é—¨æˆ·ç½‘ç«™
 
-portal-webÇ°Ì¨Ö÷Ò³±íÏÖ²ã -- ²Î¿¼manager-web
+portal-webå‰å°ä¸»é¡µè¡¨ç°å±‚ -- å‚è€ƒmanager-web
 
-´ò°ü·½Ê½war£¬¼Ì³Ğparent¹¤³Ì
+æ‰“åŒ…æ–¹å¼warï¼Œç»§æ‰¿parentå·¥ç¨‹
 
 

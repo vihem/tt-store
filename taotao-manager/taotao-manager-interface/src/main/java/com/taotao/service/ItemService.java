@@ -5,14 +5,16 @@ import java.util.List;
 import com.taotao.common.pojo.EasyUIDataGridResult;
 import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.pojo.TbItem;
+import com.taotao.pojo.TbItemDesc;
+import com.taotao.pojo.TbItemParamItem;
 
 public interface ItemService {
 	/**
 	 * 根据id获取商品
-	 * @param itemId
+	 * @param itemId long---数据库中类型是bigint
 	 * @return TbItem bean
 	 */
-	TbItem getItemById(long itemId);	//long---数据库中类型是bigint
+	TbItem getItemById(long itemId);
 	/**
 	 * 获取商品列表
 	 * @param page 页码
@@ -35,4 +37,14 @@ public interface ItemService {
 	 * 2021年11月14日
 	 */
 	TaotaoResult deleteItem(List<Long> itemIds);
+
+	/**
+	 * 根据商品id查询商品描述
+	 */
+	TbItemDesc getItemDescById(long itemId);
+
+	/**
+	 * 根据商品id查询 商品规格
+	 */
+	TbItemParamItem getItemParamByItemId(long itemId);
 }

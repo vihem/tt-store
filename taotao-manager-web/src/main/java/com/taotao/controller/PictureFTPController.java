@@ -60,7 +60,7 @@ public class PictureFTPController {
 			boolean res = FtpUtils.uploadFile(FTP_HOST, FTP_PORT, FTP_USERNAME, FTP_PASSWORD, 
 					FTP_BASE_PATH, imagePath, filename, uploadFile.getInputStream());
 			String url = IMAGE_SERVER_URL + "images" + imagePath + filename;
-			System.out.println("imageUrl = " + url);
+			System.out.println("Upload picture successful, imageUrl = " + url);
 			// 响应上传图片的url(根据官方文档http://kindeditor.net/docs/upload.html)
 			if (!res) {
 				result.put("error",	1);//error:成功为0，失败为1

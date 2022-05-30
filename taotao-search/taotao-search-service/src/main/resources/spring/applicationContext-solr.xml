@@ -10,10 +10,10 @@
 	
 	<!-- 单机版solr的连接，使用SolrServer的子类HttpSolrServer
 		// 创建一个solrServer对象。创建HttpSolrServer对象,需要指定solr服务的url
-		SolrServer solrServer = new HttpSolrServer("http://192.168.25.131:8080/solr/collection1");
+		SolrServer solrServer = new HttpSolrServer("http://192.168.1.136:8080/solr/collection1");
 	 -->
 	<bean id="httpSolrServer" class="org.apache.solr.client.solrj.impl.HttpSolrServer">
 		<!-- 构造函数 -->
-		<constructor-arg name="baseURL" value="http://192.168.25.131:8080/solr/collection1"/>
+		<constructor-arg name="baseURL" value="http://192.168.1.136:8080/solr/collection1"/>
 	</bean>
 </beans>

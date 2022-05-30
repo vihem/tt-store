@@ -25,49 +25,43 @@ public class ContentController {
 	 * 获取内容列表
 	 * @param page	页码数
 	 * @param rows	显示的行数
-	 * @return
 	 */
 	@RequestMapping("/content/query/list")
 	@ResponseBody
 	public EasyUIDataGridResult getContentList(Long categoryId, Integer page, Integer rows) {
-		EasyUIDataGridResult result = contentService.getContentList(categoryId, page, rows);
-		return result;
+		return contentService.getContentList(categoryId, page, rows);
 	}
 	
 	/**
 	 * 添加内容 -- post请求
 	 * /content/save来自content-add.jsp的submitForm()
 	 * @param content
-	 * @return
 	 */
 	@RequestMapping("/content/save")
 	@ResponseBody
 	public TaotaoResult addContent(TbContent content) {
-		TaotaoResult result = contentService.addContent(content);
-		return result;
+		return contentService.addContent(content);
 	}
 	
 	@RequestMapping("/content/edit")
 	@ResponseBody
 	public TaotaoResult editContent(TbContent content) {
-		TaotaoResult result = contentService.editContent(content);
-		return result;
+		return contentService.editContent(content);
 		
 	}
 	
 	@RequestMapping("/content/delete")
 	@ResponseBody
-	public TaotaoResult delectContent(String ids, Long categoryId) {
+	public TaotaoResult deleteContent(String ids, Long categoryId) {
 //		List<Long> idList = Arrays.asList(ids.split(","))
 //				.stream()
 //				.map(s -> Long.parseLong(s.trim()))
 //				.collect(Collectors.toList());
 		String[] splitIds = ids.split(",");
-		List<Long> idList = new ArrayList<Long>();
-		for (int i = 0; i < splitIds.length; i++) {
-			idList.add(Long.parseLong(splitIds[i]));
+		List<Long> idList = new ArrayList<>();
+		for (String splitId : splitIds) {
+			idList.add(Long.parseLong(splitId));
 		}
-		TaotaoResult result = contentService.deleteContent(idList,categoryId);
-		return result;
+		return contentService.deleteContent(idList,categoryId);
 	}
 }

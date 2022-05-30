@@ -13,11 +13,11 @@ import org.apache.solr.common.SolrInputDocument;
 import org.junit.Test;
 
 public class TestSolrJ {
-	private String url = "http://192.168.25.131:8080/solr/collection1";
+	private String url = "http://192.168.1.136:8080/solr/collection1";
 	
 	@Test
 	public void addDocument() throws Exception{
-		// 1. 创建一个solrServer对象。创建HttpSolrServer对象，需要指定solr服务的url http://192.168.25.136:8080/solr/collection1	
+		// 1. 创建一个solrServer对象。创建HttpSolrServer对象，需要指定solr服务的url http://192.168.1.136:8080/solr/collection1	
 		SolrServer solrServer = new HttpSolrServer(url);
 		// 2. 创建一个文档对象 SolrInputDocumnet
 		SolrInputDocument solrInputDocument = new SolrInputDocument();

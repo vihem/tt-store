@@ -5,9 +5,9 @@
         <tr><!-- tr:row th:colum -->
         	<th data-options="field:'ck',checkbox:true"></th>
         	<th data-options="field:'id',width:60,align:'center'">商品ID</th>
-            <th data-options="field:'title',width:250,align:'center'">商品标题</th>
+            <th data-options="field:'title',width:250,align:'left'">商品标题</th>
             <th data-options="field:'cid',width:65,align:'center'">叶子类目</th>
-            <th data-options="field:'sellPoint',width:100,align:'center'">卖点</th>
+            <th data-options="field:'sellPoint',width:300,align:'left'">卖点</th>
             <th data-options="field:'price',width:70,align:'center',formatter:TAOTAO.formatPrice">价格</th>
             <th data-options="field:'num',width:70,align:'center'">库存数量</th>
             <th data-options="field:'barcode',width:100,align:'center'">条形码</th>
@@ -18,7 +18,7 @@
     </thead>
 </table>
 <div id="itemEditWindow" class="easyui-window" title="编辑商品" 
-	data-options="modal:true,closed:true,iconCls:'icon-save',href:'/rest/page/item-edit'" 
+	data-options="modal:true,closed:true,iconCls:'icon-save',href:'/item-edit'" 
 	style="width:80%;height:80%;padding:10px;">
 </div>
 <script>
@@ -52,25 +52,27 @@ var toolbar = [{
     		$.messager.alert('提示','只能选择一个商品!');
     		return ;
     	}
-    	$.messager.alert('提示','测试弹框');
     	$("#itemEditWindow").window({
     		onLoad :function(){
     			//回显数据
     			var data = $("#itemList").datagrid("getSelections")[0];
+                console.log(data);
     			data.priceView = TAOTAO.formatPrice(data.price);
     			$("#itemeEditForm").form("load",data);
     			
     			// 加载商品描述
-    			$.getJSON('/rest/item/query/item/desc/'+data.id,function(_data){
+    			$.getJSON('/itemDesc/'+data.id,function(_data){
     				if(_data.status == 200){
+                        console.log(_data);
     					//UM.getEditor('itemeEditDescEditor').setContent(_data.data.itemDesc, false);
     					itemEditEditor.html(_data.data.itemDesc);
     				}
     			});
     			
     			//加载商品规格
-    			$.getJSON('/rest/item/param/item/query/'+data.id,function(_data){
+    			$.getJSON('/itemParam/'+data.id,function(_data){
     				if(_data && _data.status == 200 && _data.data && _data.data.paramData){
+                        console.log(_data);
     					$("#itemeEditForm .params").show();
     					$("#itemeEditForm [name=itemParams]").val(_data.data.paramData);
     					$("#itemeEditForm [name=itemParamId]").val(_data.data.id);

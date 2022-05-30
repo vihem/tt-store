@@ -22,7 +22,7 @@ public class TestFastDFS {
 		 * 		添加pom
 		 * 2. 创建配置文件。配置tracker服务器地址
 		 * 		/taotao-manager-web/src/main/resources/resource/client.conf
-		 * 		tracker_server=192.168.25.133:22122
+		 * 		tracker_server=192.168.1.133:22122
 		 * 3. 加载配置文件
 		 * 4. 创建一个TrackerClient对象
 		 * 5. 使用TrackerClient对象获得trackerserver对象

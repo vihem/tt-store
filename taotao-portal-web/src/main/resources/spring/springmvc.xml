@@ -33,7 +33,7 @@
 		类似于restful(跨平台)
 		类似于Webservice(跨平台),使用wsdl(网络服务描述语言)调用接口 -->
 	<dubbo:application name="taotao-portal-web" />
-	<dubbo:registry protocol="zookeeper" address="192.168.25.128:2181" />
+	<dubbo:registry protocol="zookeeper" address="192.168.1.136:2181" />
 	<!-- 增加引用调用远程服务配置，创建服务代理对象 -->
 	<dubbo:reference interface="com.taotao.content.service.ContentService" id="contentService" />
 </beans>

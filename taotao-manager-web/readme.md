@@ -29,7 +29,7 @@ zookeeper注册中心
 ---------
 图片上传 FastDFS服务器
 client.conf配置文件：tracker服务器地址
-tracker_server=192.168.25.133:22122
+tracker_server=192.168.1.133:22122
 ---------
 本项目使用FTP图片服务器，使用配置文件resource.properties
 1. 在common中添加了相关依赖：Apache工具组件

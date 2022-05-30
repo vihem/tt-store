@@ -54,6 +54,7 @@ public class SearchItemServiceImpl implements SearchItemService {
 			}
 			// 3. 提交
 			solrServer.commit();
+			System.out.println("数据导入到solr成功");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return TaotaoResult.build(500, "数据导入到solr失败");

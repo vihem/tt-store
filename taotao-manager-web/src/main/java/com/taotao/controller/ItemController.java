@@ -3,6 +3,8 @@ package com.taotao.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.taotao.pojo.TbItemDesc;
+import com.taotao.pojo.TbItemParamItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -82,5 +84,24 @@ public class ItemController {
 			itemIds.add(Long.parseLong(idList[i]));
 		}
 		return itemService.deleteItem(itemIds);
+	}
+
+	/**
+	 * 根据商品id查询商品描述
+	 */
+	@RequestMapping("/itemDesc/{itemId}")
+	@ResponseBody
+	public TbItemDesc getItemDescById(@PathVariable Long itemId) {
+		return itemService.getItemDescById(itemId);
+	}
+
+	/**
+	 * 根据商品id查询 商品规格
+	 */
+	@RequestMapping("/itemParam/{itemId}")
+	@ResponseBody
+	public TbItemParamItem getItemParamByItemId(@PathVariable Long itemId) {
+		System.out.println("根据商品id查询 商品规格 " + itemId);
+		return itemService.getItemParamByItemId(itemId);
 	}
 }

@@ -1,28 +1,28 @@
-taotao-manager£º
-ÕâÊÇ·şÎñ²ã¹¤³Ì¡¢¾ÛºÏ¹¤³Ì¡¢´ò°ü·½Ê½pom£»
-ÓĞËÄ¸ö¼Ì³Ğ Ä£¿éMaven Model£º
-	´ò°ü·½Ê½Îªjar£º
-		dao£¨data access object£¬Ê¹ÓÃÁËÄæÏò¹¤³Ì£©
-		pojo£¨Plain Old Java Object£¬¼´JavaBeans£©
-		interface£¨ÓÃÓÚ£©
-	´ò°ü·½Ê½Îªwar£º
-		service£¨°Ñ·şÎñ²ã¾ÛºÏÎªÒ»¿é£©
-		serviceÒÀÀµÒÀÀµdao
-		daoÒÀÀµpojo
-	ÔËĞĞÊ±Ö±½ÓÔËĞĞ¾ÛºÏ¹¤³Ìmanager
+taotao-managerï¼š
+è¿™æ˜¯æœåŠ¡å±‚å·¥ç¨‹ã€èšåˆå·¥ç¨‹ã€æ‰“åŒ…æ–¹å¼pomï¼›
+æœ‰å››ä¸ªç»§æ‰¿ æ¨¡å—Maven Modelï¼š
+	æ‰“åŒ…æ–¹å¼ä¸ºjarï¼š
+		daoï¼ˆdata access objectï¼Œä½¿ç”¨äº†é€†å‘å·¥ç¨‹ï¼‰
+		pojoï¼ˆPlain Old Java Objectï¼Œå³JavaBeansï¼‰
+		interfaceï¼ˆç”¨äºï¼‰
+	æ‰“åŒ…æ–¹å¼ä¸ºwarï¼š
+		serviceï¼ˆæŠŠæœåŠ¡å±‚èšåˆä¸ºä¸€å—ï¼‰
+		serviceä¾èµ–ä¾èµ–dao
+		daoä¾èµ–pojo
+	è¿è¡Œæ—¶ç›´æ¥è¿è¡Œèšåˆå·¥ç¨‹manager
 	
-mybatisºÍspringµÄÕûºÏ·ÅÔÚmanager
+mybatiså’Œspringçš„æ•´åˆæ”¾åœ¨manager
 
-mabatisÅäÖÃÎÄ¼ş£º
-1. ·ÅÔÚdaoÒ²ĞĞ£¬µ«ÊÇdao»á´ò°ü³Éjar°ü£¬
-ÕâÑùÅäÖÃÎÄ¼şÒ²»á´ò°ü³Éjar°ü£¬ÆäËûµÄÅäÖÃÎÄ¼ş·ÃÎÊ¸Ãjar°üÀïÃæµÄÅäÖÃÎÄ¼ş»á±È½ÏÂé·³
-Ò»°ã·ÅÔÚ×îÖÕÔËĞĞµÄ¹¤³ÌÀïÃæservice£¨war°ü£©¡£
-2. ½á¹ûÔÚ£º
+mabatisé…ç½®æ–‡ä»¶ï¼š
+1. æ”¾åœ¨daoä¹Ÿè¡Œï¼Œä½†æ˜¯daoä¼šæ‰“åŒ…æˆjaråŒ…ï¼Œ
+è¿™æ ·é…ç½®æ–‡ä»¶ä¹Ÿä¼šæ‰“åŒ…æˆjaråŒ…ï¼Œå…¶ä»–çš„é…ç½®æ–‡ä»¶è®¿é—®è¯¥jaråŒ…é‡Œé¢çš„é…ç½®æ–‡ä»¶ä¼šæ¯”è¾ƒéº»çƒ¦
+ä¸€èˆ¬æ”¾åœ¨æœ€ç»ˆè¿è¡Œçš„å·¥ç¨‹é‡Œé¢serviceï¼ˆwaråŒ…ï¼‰ã€‚
+2. ç»“æœåœ¨ï¼š
 /taotao-manager/taotao-manager-service/src/main/resources/mybatis/SqlMapConfig.xml
 
 ------------
-manager-pojoÏÂcom.taotao.pojoÏÂµÄbean
-ÎªËùÓĞµÄbeanÌí¼ÓSerializableĞòÁĞ»¯½Ó¿Ú
+manager-pojoä¸‹com.taotao.pojoä¸‹çš„bean
+ä¸ºæ‰€æœ‰çš„beanæ·»åŠ Serializableåºåˆ—åŒ–æ¥å£
 ------------
-Error£º
-Èç¹ûÆô¶¯Ã»ÓĞ³É¹¦£¬ÔÚmanager-serviceµÄresources°üÖĞÌí¼Ólog4j.propertiesÎÄ¼ş
+Errorï¼š
+å¦‚æœå¯åŠ¨æ²¡æœ‰æˆåŠŸï¼Œåœ¨manager-serviceçš„resourcesåŒ…ä¸­æ·»åŠ log4j.propertiesæ–‡ä»¶

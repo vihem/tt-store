@@ -27,7 +27,7 @@ public class FtpUtils {
 	 * @param basePath FTP服务器基础目录：/home/ftpuser/www/images
 	 * @param filePath FTP服务器文件存放路径。例如分日期存放：/2015/01/01。文件的路径为basePath+filePath
 	 * @param filename 上传到FTP服务器上的文件名 
-	 * @param input 输入流 
+	 * @param inputStream 输入流 
 	 * @return 成功返回true，否则返回false 
 	 */  
 	public static boolean uploadFile(String host, int port, String username, String password, String basePath,
@@ -132,6 +132,7 @@ public class FtpUtils {
 				try {
 					ftp.disconnect();
 				} catch (IOException ioe) {
+					ioe.printStackTrace();
 				}
 			}
 		}
@@ -141,10 +142,10 @@ public class FtpUtils {
 	public static void main(String[] args) {
 		try {  
 	        FileInputStream in=new FileInputStream(new File("D:/3.jpg"));  
-	        boolean flag = uploadFile("192.168.25.133", 21, "ftpuser", "ftpuser", "/home/ftpuser/www/images","", "3.jpg", in);  
+	        boolean flag = uploadFile("192.168.1.133", 21, "ftpuser", "ftpuser", "/home/ftpuser/www/images","", "3.jpg", in);  
 	        System.out.println(flag);
 	        
-	        boolean downloadFile = downloadFile("192.168.25.133", 21, "ftpuser", "ftpuser", "/home/ftpuser/www/images", "3.jpg", "D:/images");
+	        boolean downloadFile = downloadFile("192.168.1.133", 21, "ftpuser", "ftpuser", "/home/ftpuser/www/images", "3.jpg", "D:/images");
 	        System.out.println(downloadFile);
 	    } catch (FileNotFoundException e) {  
 	        e.printStackTrace();  

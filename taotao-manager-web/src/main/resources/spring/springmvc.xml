@@ -50,7 +50,7 @@
 	<dubbo:application name="taotao-manager-web"/>
 	
 	<!-- 注册中心地址 -->
-	<dubbo:registry protocol="zookeeper" address="192.168.25.128:2181"/>
+	<dubbo:registry protocol="zookeeper" address="192.168.1.136:2181"/>
 	
 	<!-- 增加引用调用远程服务配置，创建服务代理对象 -->
 	<dubbo:reference interface="com.taotao.service.ItemService" id="itemService" />

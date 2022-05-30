@@ -51,7 +51,7 @@
 		
 		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://192.168.25.129:3306/taotao" userId="root"
+			connectionURL="jdbc:mysql://192.168.1.136:3306/taotao" userId="root"
 			password="root">
 		</jdbcConnection>
 		<!-- <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
