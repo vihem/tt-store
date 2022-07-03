@@ -54,6 +54,8 @@ ps -ef | grep redis
 2. 启动 manager、common、search、manager-web、portal-web、search-web
    tomcat7:run
 
+使用tomcat进行启动
+
 > 端口 \
 > manager-8080 \
 > common-8083 \
