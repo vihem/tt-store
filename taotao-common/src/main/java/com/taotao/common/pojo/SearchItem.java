@@ -2,7 +2,6 @@ package com.taotao.common.pojo;
 
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
 public class SearchItem implements Serializable {
 	private String id;
 	private String title;

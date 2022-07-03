@@ -28,6 +28,7 @@ public class ContentServiceImpl implements ContentService {
 	@Autowired
 	private JedisClient jedisClient;
 	
+	// 在applicationContext-dao中加载配置文件
 	@Value("${INDEX_CONTENT}")
 	private String INDEX_CONTENT;
 	
@@ -41,13 +42,8 @@ public class ContentServiceImpl implements ContentService {
 		criteria.andCategoryIdEqualTo(categoryId);
 		List<TbContent> list = contentMapper.selectByExampleWithBLOBs(example);
 //		List<TbContent> list = contentMapper.selectByExample(example);
-		// 得到查询结果
-		PageInfo<TbContent> pageInfo = new PageInfo<>(list);
-		EasyUIDataGridResult result = new EasyUIDataGridResult();
-		result.setRows(list);
-		result.setTotal(pageInfo.getTotal());
 		// 返回结果
-		return result;
+		return new EasyUIDataGridResult(new PageInfo<>(list).getTotal(), list);// new PageInfo<>(list)-得到查询结果
 		// 发布服务到dubbo，让web引用
 	}
 
@@ -101,10 +97,10 @@ public class ContentServiceImpl implements ContentService {
 	@Override
 	public List<TbContent> getContentsByCid(long cid) {
 		// 查询缓存
-		// 添加缓存，但不能影响正常的业务逻辑
+		// 添加缓存，但不能影响正常的业务逻辑，所以使用try catch
 		try {
 			// 查询缓存
-			String json = jedisClient.hget(INDEX_CONTENT, String.valueOf(cid));
+			String json = jedisClient.hget(INDEX_CONTENT, Long.toString(cid));
 			// 如果查询到结果，把json转为List
 			if (StringUtils.isNotBlank(json)) {
 				return JsonUtils.jsonToList(json, TbContent.class);
@@ -117,12 +113,10 @@ public class ContentServiceImpl implements ContentService {
 		Criteria criteria = example.createCriteria();
 		criteria.andCategoryIdEqualTo(cid);
 		List<TbContent> list = contentMapper.selectByExample(example);
-		/*
-		 * 新添加内容时，缓存没有添加该内容，所以需要在添加内容时，把结果添加到缓存,同步缓存
-		 */
+		// 新添加内容时，缓存没有添加该内容，所以需要在添加内容时，把结果添加到缓存,同步缓存
 		try {
 			// key=INDEX_CONTENT(首页内容，是不会变的),field=cid(会变的),value=JsonUtils.objectToJson(list)
-			jedisClient.hset(INDEX_CONTENT, cid+"", JsonUtils.objectToJson(list));
+			jedisClient.hset(INDEX_CONTENT, Long.toString(cid), JsonUtils.objectToJson(list));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

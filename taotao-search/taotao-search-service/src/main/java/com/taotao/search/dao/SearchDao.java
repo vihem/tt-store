@@ -32,8 +32,6 @@ public class SearchDao {
 	 * @throws Exception
 	 */
 	public SearchResult search(SolrQuery query) throws Exception{
-		SearchResult result = new SearchResult();
-		
 		// 1. 根据query对象进行查询
 		QueryResponse response = solrServer.query(query);
 		
@@ -41,7 +39,7 @@ public class SearchDao {
 		SolrDocumentList solrDocumentList = response.getResults();
 		
 		// 3. 封装查询结果到SearchItem中
-		List<SearchItem> itemList = new ArrayList<SearchItem>();
+		List<SearchItem> itemList = new ArrayList<>();
 		for (SolrDocument solrDocument : solrDocumentList) {
 			SearchItem item = new SearchItem();
 			item.setId((String) solrDocument.get("id"));
@@ -55,10 +53,9 @@ public class SearchDao {
 			item.setPrice((long) solrDocument.get("item_price"));
 			item.setSell_point((String) solrDocument.get("item_sell_point"));
 			// 取高亮
+			String itemTitle;
 			Map<String, Map<String, List<String>>> highlighting = response.getHighlighting();
 			List<String> list = highlighting.get(solrDocument.get("id")).get("item_title");
-			
-			String itemTitle = "";
 			if (list != null && list.size() > 0) {
 				itemTitle = list.get(0);
 			} else {
@@ -67,6 +64,7 @@ public class SearchDao {
 			item.setTitle(itemTitle);
 			itemList.add(item);
 		}
+		SearchResult result = new SearchResult();
 		//		设置 查询结果总记录数
 		result.setRecordCount(solrDocumentList.getNumFound());
 		// 4. 结果添加到SearchResult中

@@ -81,7 +81,9 @@
 		</dependency>
 	</dependencies>
 	
-	<!--报错：Invalid bound statement (not found) 时是因为：需要把src/main/java路径下的所有 .xml文件复制到目标目录 -->
+	<!--报错：Invalid bound statement (not found) 时是因为：
+	mapper.xml文件和mapper接口没有对应起来
+	需要把src/main/java和src/main/resources路径下的所有.xml和.properties文件复制到目标目录(target/classes) -->
 	<build>
 		<resources>
 			<resource>

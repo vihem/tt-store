@@ -12,8 +12,11 @@ import org.apache.solr.common.SolrDocumentList;
 import org.apache.solr.common.SolrInputDocument;
 import org.junit.Test;
 
+/**
+ * 单机版solrJ连接测试(HttpSolrServer)
+ */
 public class TestSolrJ {
-	private String url = "http://192.168.1.136:8080/solr/collection1";
+	private final String url = "http://192.168.1.136:8080/solr/collection1";
 	
 	@Test
 	public void addDocument() throws Exception{
@@ -42,6 +45,7 @@ public class TestSolrJ {
 	public void deleteDocumentByQuery() throws Exception{
 		SolrServer server = new HttpSolrServer(url);
 		server.deleteByQuery("id:test001");
+//		server.deleteByQuery("item_title:测试标题");
 		server.commit();
 	}
 	
@@ -55,8 +59,8 @@ public class TestSolrJ {
 //		solrQuery.set("q", "*:*");//q=查询条件
 //		solrQuery.setQuery("*:*");//查询所有
 		solrQuery.setQuery("手机");
-		solrQuery.setStart(0);//从第一条开始
-		solrQuery.setRows(2);//每页20条
+		solrQuery.setStart(0);//从第1条开始
+		solrQuery.setRows(10);//每页10条
 		solrQuery.setHighlight(true);//设置高亮
 		solrQuery.addHighlightField("item_title");// 设置高亮显示的域
 		solrQuery.setHighlightSimplePre("<em>");// 设置高亮显示的域。<em>用<div>也行
@@ -71,7 +75,7 @@ public class TestSolrJ {
 		
 		// 6. 分析所有的查询结果，对单条记录进行处理
 		for (SolrDocument solrDocument : solrDocumentList) {
-			System.out.println(solrDocument.get("id"));
+			System.out.println("id="+solrDocument.get("id"));
 			// 取itemTitle里面的 高亮显示
 			Map<String, Map<String, List<String>>> highlighting = response.getHighlighting();
 			List<String> list = highlighting.get(solrDocument.get("id")).get("item_title");
@@ -79,7 +83,7 @@ public class TestSolrJ {
 			if (list != null && list.size()>0) {
 				itemTitle = list.get(0);
 			}
-			System.out.println(itemTitle);
+			System.out.println("itemTitle="+itemTitle);
 			System.out.println(solrDocument.get("item_sell_point"));
 			System.out.println(solrDocument.get("item_price"));
 			System.out.println(solrDocument.get("item_image"));

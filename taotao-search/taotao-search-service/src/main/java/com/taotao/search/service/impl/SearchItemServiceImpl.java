@@ -13,7 +13,7 @@ import com.taotao.search.mapper.SearchItemMapper;
 import com.taotao.search.service.SearchItemService;
 
 /**
- * 商品数据导入到索引库
+ * 商品索引库Solr服务
  * 在taotao-manager-web中调用该服务
  * @author yeasue
  *
@@ -54,13 +54,13 @@ public class SearchItemServiceImpl implements SearchItemService {
 			}
 			// 3. 提交
 			solrServer.commit();
-			System.out.println("数据导入到solr成功");
+			System.out.println("Import to solr successful!");
+			// 4. 返回添加成功
+			return TaotaoResult.ok();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return TaotaoResult.build(500, "数据导入到solr失败");
 		}
-		// 4. 返回添加成功
-		return TaotaoResult.ok();
 	}
 
 	

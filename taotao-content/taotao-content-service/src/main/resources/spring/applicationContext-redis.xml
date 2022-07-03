@@ -33,7 +33,7 @@
 	<bean id="jedisClientPool" class="com.taotao.jedis.JedisClientPool" />
 	
 	
-	<!-- redis集群 -->
+	<!-- redis集群，切换集群版，只需要放下下面的注释 -->
 	<!-- 初始化JedisCluster对象 -->
 	<!-- <bean id="jedisCluster" class="redis.clients.jedis.JedisCluster">
 		<constructor-arg>

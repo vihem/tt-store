@@ -14,7 +14,14 @@ public class EasyUIDataGridResult implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private long total;//总记录数
 	private List<?> rows;//数据集
-	
+
+	public EasyUIDataGridResult() {}
+
+	public EasyUIDataGridResult(long total, List<?> rows) {
+		this.total = total;
+		this.rows = rows;
+	}
+
 	public long getTotal() {
 		return total;
 	}
