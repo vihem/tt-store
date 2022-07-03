@@ -48,13 +48,13 @@ ps -ef | grep redis
 ```
 
 ## 二、启动代码
-1. 使用maven安装服务： common、pagehelper、manager、content、search
-   clean install -Dmaven.test.skip=true
+1. 使用maven启动
+   1. 使用maven安装服务： common、pagehelper、manager、content、search\
+      clean install -Dmaven.test.skip=true
+   2. 启动 manager、common、search、manager-web、portal-web、search-web\
+      tomcat7:run
 
-2. 启动 manager、common、search、manager-web、portal-web、search-web
-   tomcat7:run
-
-使用tomcat进行启动
+2. 使用tomcat进行启动
 
 > 端口 \
 > manager-8080 \
